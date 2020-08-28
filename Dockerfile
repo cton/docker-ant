@@ -24,8 +24,8 @@ RUN wget --no-check-certificate --no-cookies http://archive.apache.org/dist/ant/
 RUN update-alternatives --install "/usr/bin/ant" "ant" "/opt/ant/bin/ant" 1 && \
     update-alternatives --set "ant" "/opt/ant/bin/ant" 
 
-# Add the files
-ADD rootfs /
+ENV ANT_HOME /opt/ant
+ENV PATH ${PATH}:/opt/ant/bin
 
 # change to root folder
 WORKDIR /root
