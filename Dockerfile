@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM adoptopenjdk:11-jdk-hotspot
 
 MAINTAINER ctonn
 
@@ -7,6 +7,9 @@ ENV ANT_HOME=/opt/ant
 
 # change to tmp folder
 WORKDIR /tmp
+
+RUN apt-get update \
+    && apt-get install -y wget
 
 # Download and extract apache ant to opt folder
 RUN wget --no-check-certificate --no-cookies http://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz \
