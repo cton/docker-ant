@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jdk-hotspot
 
 MAINTAINER ctonn
 
-ENV ANT_VERSION=1.10.8
+ENV ANT_VERSION=1.10.12
 ENV ANT_HOME=/opt/ant
 
 # change to tmp folder
