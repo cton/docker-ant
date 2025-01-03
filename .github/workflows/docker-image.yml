@@ -31,12 +31,10 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
       
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v6
-      with:
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          annotations: ${{ steps.meta.outputs.annotations }}
+    - name: Build the Docker image
+      run: |
+        docker build . --file Dockerfile --tag ctonn/docker-ant:latest
+        docker push ctonn/docker-ant:latest
           provenance: true
           sbom: true
       
